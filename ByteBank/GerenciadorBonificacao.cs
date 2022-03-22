@@ -15,16 +15,17 @@ namespace ByteBank
         {
             _totalBonificacao += funcionario.GetBonificacao();
         }
-                                                                            //Utilizando Sobrecarga de métodos
-        public void Registrar(Diretor diretor)
-        {
-            _totalBonificacao += diretor.GetBonificacao();
-        }
-
         public double GetTotalBonificacao()
         {
             return _totalBonificacao;
         }
+                                                                            //Utilizando Sobrecarga de métodos
+       /* public void Registrar(Diretor diretor)
+        {
+            _totalBonificacao += diretor.GetBonificacao();
+        }
+       */
+
 
     }
 }
