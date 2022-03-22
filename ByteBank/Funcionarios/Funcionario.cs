@@ -8,9 +8,23 @@ namespace ByteBank.Funcionarios
 {
     public class Funcionario
     {
+        public static int TotalDeFuncionarios { get; private set; }
         public string Nome { get; set; }
-        public string CPF{ get; set; }
-        public double Salario { get; set; }
+        public string CPF{ get; private set; }
+        public double Salario { get; protected set; } // definindo modificador de acesso para esse campo ser acessivel pela classe como pelos tipos derivados (classes filhas)
+                                                      // para fora da classe base e filhas ele se comporta como private
+        public Funcionario(double salario, string cpf)
+        {
+            //Console.WriteLine("Criando Funcionário!");
+            Salario = salario;
+            CPF = cpf;
+            TotalDeFuncionarios++;
+        }
+
+        public virtual void AumentarSalario()
+        {
+            Salario *= 1.1;
+        }
 
                                                 //Criando um método VIRTUAL, o que disponibiliza
                                                 //sobrescrever esse método nas classes filhas definindo o OVERRIDE.
