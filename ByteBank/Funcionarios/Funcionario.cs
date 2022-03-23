@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Funcionario
+    public abstract class Funcionario  //NÂO É POSSIVEL CRIAR UMA INSTANCIA DE UMA CLASSE ABSTRACT
     {
         public static int TotalDeFuncionarios { get; private set; }
         public string Nome { get; set; }
@@ -21,17 +21,20 @@ namespace ByteBank.Funcionarios
             TotalDeFuncionarios++;
         }
 
-        public virtual void AumentarSalario()
+        public abstract void AumentarSalario(); //Métodos ABSTRACTS NÃO permitem implementação, como tambem obrigam a implementação e o OVERRIDE na classe filha 
+        public abstract double GetBonificacao(); //Métodos ABSTRACTS apenas podem ser criados em CLASSES ABSTRACTS
+
+        /*public virtual void AumentarSalario()
         {
             Salario *= 1.1;
-        }
+        } */
 
-                                                //Criando um método VIRTUAL, o que disponibiliza
-                                                //sobrescrever esse método nas classes filhas definindo o OVERRIDE.
-                                                //Ex. a Classe Diretor
-        public virtual double GetBonificacao()  // Métodos virtuais permitem uma implementação como também a sobrescrita
+        //Criando um método VIRTUAL, o que disponibiliza
+        //sobrescrever esse método nas classes filhas definindo o OVERRIDE.
+        //Ex. a Classe Diretor
+        /*public virtual double GetBonificacao()  // Métodos virtuais permitem uma implementação como também a sobrescrita
         {
             return Salario * 0.10;
-        }
+        }*/
     }
 }

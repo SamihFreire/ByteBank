@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,61 +12,41 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            /*{                  OLD
-            GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
-
-            Funcionario carlos = new Funcionario(2000, "255.656.123-54");
-
-
-            carlos.Nome = "Carlos";
-            //carlos.CPF = "255.656.123-54"; Passando por parametro o argumento do cpf
-            //carlos.Salario = 2000;
-
-            //gerenciador.Registrar(carlos); 
-
-            Diretor roberta = new Diretor("236.587.656-55");
-            roberta.Nome = "Roberta";
-            //roberta.CPF = "236.587.656-55";
-            //roberta.Salario = 5000;
-
-            //gerenciador.Registrar(roberta);
-
-            Console.WriteLine("Funcionario: " + carlos.Nome);
-            Console.WriteLine("CPF: " + carlos.CPF);
-            Console.WriteLine("Salário: " + carlos.Salario);
-            Console.WriteLine("Bonificação: " + carlos.GetBonificacao());
-
-            carlos.AumentarSalario();
-
-            Console.WriteLine(carlos.Nome + "recebeu um aumento");
-            Console.WriteLine("Salário atual: " + carlos.Salario);
-            Console.WriteLine("Bonificação atual: " + carlos.GetBonificacao());
-
-            Console.WriteLine("-----------------------------------------------");
-
-            Console.WriteLine("Funcionario: " + roberta.Nome);
-            Console.WriteLine("CPF: " + roberta.CPF);
-            Console.WriteLine("Salário: " + roberta.Salario);
-            Console.WriteLine("Bonificação: " + roberta.GetBonificacao());
-
-            roberta.AumentarSalario();
-
-            Console.WriteLine(roberta.Nome + "recebeu um aumento");
-            Console.WriteLine("Salário atual: " + roberta.Salario);
-            Console.WriteLine("Bonificação atual: " + roberta.GetBonificacao());
-
-            Console.WriteLine("-----------------------------------------------");
-
-            gerenciador.Registrar(carlos);
-            gerenciador.Registrar(roberta);
-            Console.WriteLine("Total Bonificação dos funcionários: " + gerenciador.GetTotalBonificacao());
-            Console.WriteLine("Número de Funcionários: " + Funcionario.TotalDeFuncionarios);
-            }*/
+            CalcularBonificacao();
 
             Console.ReadLine();
         }
 
+        public static void CalcularBonificacao()
+        {
+            GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
+            
+            //Funcionario carlos = new Funcionario(2000, "020.202.202-89"); NÂO É POSSIVEL CRIAR UMA INSTANCIA DE UMA CLASSE ABSTRACT
 
+            Designer pedro = new Designer("833.222.048-39");
+            pedro.Nome = "Pedro";
+
+            Diretor roberta = new Diretor("159.753.398-04");
+            roberta.Nome = "Roberta";
+
+            Auxiliar igor = new Auxiliar("981.198.778-53");
+            igor.Nome = "Igor";
+
+            GerenteDeConta camila = new GerenteDeConta("326.985.628-89");
+            camila.Nome = "Camila";
+
+            Desenvolvedor guilherme = new Desenvolvedor("454.212.546-84");
+            guilherme.Nome = "Guilherme";
+
+
+            gerenciadorBonificacao.Registrar(pedro);
+            gerenciadorBonificacao.Registrar(roberta);
+            gerenciadorBonificacao.Registrar(igor);
+            gerenciadorBonificacao.Registrar(camila);
+            gerenciadorBonificacao.Registrar(guilherme);
+
+            Console.WriteLine("Total de bonificações do mês: " + gerenciadorBonificacao.GetTotalBonificacao());
+        }
 
     }
 }
