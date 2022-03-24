@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBank.Sistemas;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace ByteBank.Funcionarios
     //Modificadores virtual e override: Alguns comportamentos possuem implementações diferentes nas classes derivadas, para resolver este problema basta usarmos métodos virtuais e a sobrescrita.
     //base: A classe filha pode fazer referência aos membros da classe base com uso desta palavra reservada.
 
-    public class Diretor : Funcionario
+    public class Diretor : FuncionarioAutenticavel
     {
         public Diretor(string _cpf) : base(5000, _cpf) // definindo no contrutor o argumento necessário e mandando para a base esse argumento
         {
